@@ -1,36 +1,34 @@
 # Spectral Decoupling of Dimension and Information in Network Dynamics
 
-**Status:** Draft complete, ready for refinement
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
+**Status:** Draft complete
 **Target Journal:** Journal of Complex Networks (OUP)
 
 ## Overview
 
-This paper establishes that geometric dimensionality and statistical information are independent axes of network dynamical complexity:
+Geometric dimensionality and statistical information are **independent axes** of network dynamical complexity:
 
-- **Dimension (D_eff)**: Controlled by network topology via Laplacian eigenvalue density
-- **Information (h_μ)**: Controlled by dynamics and noise
+- **Dimension** $D_{\mathrm{eff}}(\tau)$: Count of Laplacian modes with relaxation time > $\tau$. Determined purely by **topology**.
+- **Entropy** $h$: Statistical property of the dynamics. Determined by **noise/coupling**.
 
-The core theorem proves that networks can have:
-1. Matched entropy but different dimension (iso-entropy, different D)
-2. Matched dimension but different entropy (iso-D, different entropy)
+**Key result:** Networks can have matched entropy with different dimension (and vice versa). The Laplacian eigenvalue density controls this decoupling.
 
-## Key Contribution
+## Key Equation
 
-While the dimension-entropy distinction is classical in dynamical systems (Grassberger-Procaccia, Eckmann-Ruelle), we make it **network-native** by:
+$$D_{\mathrm{eff}}(\tau) = |\{k : \lambda_k < 1/(\alpha\tau)\}|$$
 
-1. Defining spectral effective dimension D_eff(τ) based on Laplacian mode count
-2. Proving eigenvalue density controls decoupling
-3. Introducing the (D, h_μ) phase portrait as a diagnostic tool
+where $\lambda_k$ are normalized Laplacian eigenvalues, $\alpha$ is the diffusion rate, and $\tau$ is the observation timescale.
 
 ## Figures
 
 | Figure | Description |
 |--------|-------------|
-| `phase_portrait.png` | (D, h_μ) trajectories across topologies |
+| `phase_portrait.png` | Each topology at fixed $D_{\mathrm{eff}}$; noise moves entropy vertically |
 | `isoentropic_comparison.png` | Same entropy, different dimension |
-| `isodimensional_experiment.png` | Same dimension, different entropy |
-| `spectral_theory.png` | Laplacian spectra explaining mechanism |
+| `isodimensional_experiment.png` | Fixed dimension, varying entropy |
+| `spectral_theory.png` | Laplacian spectra with threshold |
 
 ## Running Simulations
 
@@ -39,30 +37,37 @@ cd code
 python3 spectral_decoupling.py
 ```
 
-## Files
+**Requirements:** numpy, scipy, networkx, matplotlib
 
-```
-44_spectral_decoupling/
-├── paper/
-│   ├── spectral_decoupling.tex   # Main manuscript
-│   └── references.bib            # Bibliography (includes foundational lit)
-├── code/
-│   └── spectral_decoupling.py    # Simulations and figures
-├── figures/                       # Generated figures
-└── README.md
-```
+## Paper
 
-## Strategic Notes
-
-This paper serves as a **keystone citation** for other papers in the research program that make dimension-related claims. It provides formal backing for:
-
-- The distinction between "high-dimensional substrate" and "low-dimensional bottleneck"
-- Why entropy measures don't capture geometric capacity
-- The spectral basis for dimensional constraints
+- **Title:** Spectral Decoupling of Dimension and Information in Network Dynamics
+- **Status:** Draft complete
+- **PDF:** [spectral_decoupling.pdf](paper/spectral_decoupling.pdf)
 
 ## Related Papers
 
-- 3_intelligence: High-dimensional coherence (should cite this)
-- 20_slow_waves_high_D: Neural dimensionality
-- 25_lsd_dimensionality: Psychedelics and D_eff
-- 21_dimensional_collapse: Minimal embedding dimension (related math)
+This paper provides foundational backing for dimension-related claims in:
+
+| Paper | Repository |
+|-------|------------|
+| Intelligence as High-Dimensional Coherence | [todd866/high-dimensional-intelligence](https://github.com/todd866/high-dimensional-intelligence) |
+| Minimal Embedding Dimension | [todd866/minimalembeddingdimension](https://github.com/todd866/minimalembeddingdimension) |
+| LSD/Psychedelics Dimensionality | [todd866/lsd-dimensionality](https://github.com/todd866/lsd-dimensionality) |
+| Cortical Oscillations | [todd866/slow-waves-high-d](https://github.com/todd866/slow-waves-high-d) |
+
+## Citation
+
+```bibtex
+@article{todd2025spectral,
+  author = {Todd, Ian},
+  title = {Spectral Decoupling of Dimension and Information in Network Dynamics},
+  journal = {Journal of Complex Networks},
+  year = {2025},
+  note = {In preparation}
+}
+```
+
+## License
+
+MIT
