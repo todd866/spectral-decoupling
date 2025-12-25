@@ -1,0 +1,128 @@
+\begin{thebibliography}{17}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Barab{\'a}si and Albert(1999)]{barabasi1999emergence}
+A.-L. Barab{\'a}si and R.~Albert.
+\newblock Emergence of scaling in random networks.
+\newblock \emph{Science}, 286\penalty0 (5439):\penalty0 509--512, 1999.
+\newblock \doi{10.1126/science.286.5439.509}.
+
+\bibitem[Beggs and Plenz(2003)]{beggs2003neuronal}
+J.~M. Beggs and D.~Plenz.
+\newblock Neuronal avalanches in neocortical circuits.
+\newblock \emph{Journal of Neuroscience}, 23\penalty0 (35):\penalty0
+  11167--11177, 2003.
+\newblock \doi{10.1523/JNEUROSCI.23-35-11167.2003}.
+
+\bibitem[Bertschinger and Natschl{\"a}ger(2004)]{bertschinger2004real}
+N.~Bertschinger and T.~Natschl{\"a}ger.
+\newblock Real-time computation at the edge of chaos in recurrent neural
+  networks.
+\newblock \emph{Neural Computation}, 16\penalty0 (7):\penalty0 1413--1436,
+  2004.
+\newblock \doi{10.1162/089976604323057443}.
+
+\bibitem[Braunstein et~al.(2006)Braunstein, Ghosh, and
+  Severini]{braunstein2006laplacian}
+S.~L. Braunstein, S.~Ghosh, and S.~Severini.
+\newblock The {L}aplacian of a graph as a density matrix: a basic combinatorial
+  approach to separability of mixed states.
+\newblock \emph{Annals of Combinatorics}, 10\penalty0 (3):\penalty0 291--317,
+  2006.
+\newblock \doi{10.1007/s00026-006-0289-3}.
+
+\bibitem[Cunningham and Yu(2014)]{cunningham2014dimensionality}
+J.~P. Cunningham and B.~M. Yu.
+\newblock Dimensionality reduction for large-scale neural recordings.
+\newblock \emph{Nature Neuroscience}, 17\penalty0 (11):\penalty0 1500--1509,
+  2014.
+\newblock \doi{10.1038/nn.3776}.
+
+\bibitem[Eckmann and Ruelle(1985)]{eckmann1985ergodic}
+J.-P. Eckmann and D.~Ruelle.
+\newblock Ergodic theory of chaos and strange attractors.
+\newblock \emph{Reviews of Modern Physics}, 57\penalty0 (3):\penalty0 617--656,
+  1985.
+\newblock \doi{10.1103/RevModPhys.57.617}.
+
+\bibitem[Faccin et~al.(2018)Faccin, Schaub, and Delvenne]{faccin2018entrograms}
+M.~Faccin, M.~T. Schaub, and J.-C. Delvenne.
+\newblock Entrograms and coarse graining of dynamics on complex networks.
+\newblock \emph{Journal of Complex Networks}, 6\penalty0 (5):\penalty0
+  661--678, 2018.
+\newblock \doi{10.1093/comnet/cnx055}.
+
+\bibitem[G{\'o}mez-Garde{\~n}es and Latora(2008)]{gomez2008entropy}
+J.~G{\'o}mez-Garde{\~n}es and V.~Latora.
+\newblock Entropy rate of diffusion processes on complex networks.
+\newblock \emph{Physical Review E}, 78\penalty0 (6):\penalty0 065102, 2008.
+\newblock \doi{10.1103/PhysRevE.78.065102}.
+
+\bibitem[Grassberger and Procaccia(1983)]{grassberger1983measuring}
+P.~Grassberger and I.~Procaccia.
+\newblock Measuring the strangeness of strange attractors.
+\newblock \emph{Physica D: Nonlinear Phenomena}, 9\penalty0 (1-2):\penalty0
+  189--208, 1983.
+\newblock \doi{10.1016/0167-2789(83)90298-1}.
+
+\bibitem[Kaplan and Yorke(1979)]{kaplan1979chaotic}
+J.~L. Kaplan and J.~A. Yorke.
+\newblock Chaotic behavior of multidimensional difference equations.
+\newblock \emph{Functional Differential Equations and Approximation of Fixed
+  Points}, pages 204--227, 1979.
+
+\bibitem[Lacasa and G{\'o}mez-Garde{\~n}es(2013)]{lacasa2013correlation}
+L.~Lacasa and J.~G{\'o}mez-Garde{\~n}es.
+\newblock Correlation dimension of complex networks.
+\newblock \emph{Physical Review Letters}, 110\penalty0 (16):\penalty0 168703,
+  2013.
+\newblock \doi{10.1103/PhysRevLett.110.168703}.
+
+\bibitem[Lempel and Ziv(1976)]{lempel1976complexity}
+A.~Lempel and J.~Ziv.
+\newblock On the complexity of finite sequences.
+\newblock \emph{IEEE Transactions on Information Theory}, 22\penalty0
+  (1):\penalty0 75--81, 1976.
+\newblock \doi{10.1109/TIT.1976.1055501}.
+
+\bibitem[Sauer et~al.(1991)Sauer, Yorke, and Casdagli]{sauer1991embedology}
+T.~Sauer, J.~A. Yorke, and M.~Casdagli.
+\newblock Embedology.
+\newblock \emph{Journal of Statistical Physics}, 65\penalty0 (3-4):\penalty0
+  579--616, 1991.
+\newblock \doi{10.1007/BF01053745}.
+
+\bibitem[Schartner et~al.(2017)Schartner, Carhart-Harris, Barrett, Seth, and
+  Muthukumaraswamy]{schartner2017increased}
+M.~M. Schartner, R.~L. Carhart-Harris, A.~B. Barrett, A.~K. Seth, and S.~D.
+  Muthukumaraswamy.
+\newblock Increased spontaneous {MEG} signal diversity for psychoactive doses
+  of ketamine, {LSD} and psilocybin.
+\newblock \emph{Scientific Reports}, 7\penalty0 (1):\penalty0 46421, 2017.
+\newblock \doi{10.1038/srep46421}.
+
+\bibitem[Stringer et~al.(2019)Stringer, Pachitariu, Steinmetz, Carandini, and
+  Harris]{stringer2019high}
+C.~Stringer, M.~Pachitariu, N.~Steinmetz, M.~Carandini, and K.~D. Harris.
+\newblock High-dimensional geometry of population responses in visual cortex.
+\newblock \emph{Nature}, 571\penalty0 (7765):\penalty0 361--365, 2019.
+\newblock \doi{10.1038/s41586-019-1346-5}.
+
+\bibitem[Takens(1981)]{takens1981detecting}
+F.~Takens.
+\newblock Detecting strange attractors in turbulence.
+\newblock In \emph{Dynamical Systems and Turbulence, Warwick 1980}, volume 898
+  of \emph{Lecture Notes in Mathematics}, pages 366--381. Springer, 1981.
+\newblock \doi{10.1007/BFb0091924}.
+
+\bibitem[Watts and Strogatz(1998)]{watts1998collective}
+D.~J. Watts and S.~H. Strogatz.
+\newblock Collective dynamics of `small-world' networks.
+\newblock \emph{Nature}, 393\penalty0 (6684):\penalty0 440--442, 1998.
+\newblock \doi{10.1038/30918}.
+
+\end{thebibliography}

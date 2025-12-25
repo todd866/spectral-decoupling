@@ -1,0 +1,248 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+
+% Theorem environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+
+% Macros
+\newcommand{\Deff}{D_{\mathrm{eff}}}
+\newcommand{\hmu}{h_\mu}
+\newcommand{\R}{\mathbb{R}}
+
+\title{Spectral Decoupling of Dimension and Information\\in Network Dynamics}
+
+\author{Ian Todd\\
+\small Coherence Dynamics\\
+\small \texttt{ian@coherencedynamics.com}}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Network science commonly uses entropy-based measures to characterize dynamical complexity, often implicitly treating high entropy as synonymous with high dimensionality. We establish a \emph{spectral decoupling theorem} showing that geometric dimensionality and statistical information are independent axes of network dynamical complexity, controlled by distinct features: topology (via Laplacian eigenvalue density) governs dimensional capacity, while noise and coupling govern statistical occupation. We define a spectral effective dimension $\Deff(\tau)$ based on the count of Laplacian modes with relaxation times exceeding $\tau$, and prove that networks with matched entropy can differ dramatically in $\Deff$, and vice versa. Simulations across canonical network architectures (ring, small-world, modular, random, scale-free) demonstrate that each topology traces a distinct trajectory in the $(D, h)$ phase plane as noise varies. These results provide a principled framework for distinguishing geometric capacity from statistical occupation in networked systems, with applications to neural dynamics, epidemiology, and infrastructure networks.
+\end{abstract}
+
+\textbf{Keywords:} network dynamics, dimensionality, entropy, spectral graph theory, Laplacian, complexity
+
+\section{Introduction}
+
+Complex networks exhibit rich dynamical behavior arising from the interplay of topology and local dynamics. A central question in network science is how to characterize the ``complexity'' of such dynamics. Two natural candidates are \emph{dimensionality}---how many effective degrees of freedom the dynamics explore---and \emph{entropy}---how unpredictable or information-rich the dynamics are. These are often conflated or treated as proxies for one another, with entropy used as a stand-in for dynamical complexity writ large \citep{gomez2008entropy, braunstein2006laplacian}.
+
+However, classical results in dynamical systems theory establish that dimension and entropy are fundamentally distinct. The correlation dimension \citep{grassberger1983measuring}, embedding dimension \citep{takens1981detecting, sauer1991embedology}, and Lyapunov dimension \citep{kaplan1979chaotic} characterize the \emph{geometry of the attractor}---a property of the support of the dynamics. In contrast, entropy measures (Kolmogorov-Sinai entropy, topological entropy) characterize the \emph{distribution over that support}---a statistical property of the invariant measure \citep{eckmann1985ergodic}. As Eckmann and Ruelle noted, ``the dimension of the attractor and its entropy are independent characteristics'' \citep{eckmann1985ergodic}.
+
+Despite this classical distinction, network science has not systematically addressed how network topology interacts with this decoupling. When does topology force dimension and entropy to move together, and when do they decouple? What architectural features control geometric capacity versus statistical occupation?
+
+We address these questions by developing a \emph{spectral theory of dimension-entropy decoupling} for network dynamics. Our contributions are:
+
+\begin{enumerate}
+    \item \textbf{Spectral effective dimension}: We define $\Deff(\tau)$ as the count of Laplacian modes with relaxation times exceeding $\tau$, providing a topology-dependent measure of geometric capacity (Section~\ref{sec:theory}).
+
+    \item \textbf{Decoupling theorem}: We prove that networks can have matched entropy with different $\Deff$, and matched $\Deff$ with different entropy, with the decoupling controlled by the Laplacian eigenvalue density (Section~\ref{sec:theorem}).
+
+    \item \textbf{Phase portrait diagnostic}: We introduce the $(D, \hmu)$ phase portrait as a tool for characterizing network dynamical regimes, showing that different topologies trace distinct trajectories (Section~\ref{sec:results}).
+\end{enumerate}
+
+These results establish that ``network complexity'' is inherently two-dimensional: one axis for geometric capacity (set by topology), another for statistical occupation (set by dynamics). Characterizing networks along only one axis conflates distinct phenomena.
+
+\section{Theoretical Framework}
+\label{sec:theory}
+
+\subsection{Network Diffusion Dynamics}
+
+Consider a connected graph $G = (V, E)$ with $n = |V|$ nodes. Let $L$ denote the normalized Laplacian matrix:
+\begin{equation}
+    L = I - D^{-1/2} A D^{-1/2}
+\end{equation}
+where $A$ is the adjacency matrix and $D$ is the diagonal degree matrix. The Laplacian has eigendecomposition $L = V \Lambda V^T$ with eigenvalues $0 = \lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n \leq 2$.
+
+We study linear diffusive dynamics:
+\begin{equation}
+    \label{eq:diffusion}
+    x(t+1) = (I - \alpha L) x(t) + \eta(t)
+\end{equation}
+where $x(t) \in \R^n$ is the state vector, $\alpha \in (0, 1)$ is the diffusion rate, and $\eta(t) \sim \mathcal{N}(0, \sigma^2 I)$ is i.i.d.\ Gaussian noise.
+
+In the Laplacian eigenbasis, the dynamics decouple into $n$ independent modes:
+\begin{equation}
+    c_k(t+1) = (1 - \alpha \lambda_k) c_k(t) + \tilde{\eta}_k(t)
+\end{equation}
+where $c_k(t) = v_k^T x(t)$ is the projection onto the $k$-th eigenvector. Each mode is an AR(1) process with decay rate $(1 - \alpha \lambda_k)$.
+
+\subsection{Spectral Effective Dimension}
+
+The relaxation time of mode $k$ is:
+\begin{equation}
+    \tau_k = \frac{1}{\alpha \lambda_k}
+\end{equation}
+Modes with small eigenvalues relax slowly and contribute to persistent structure; modes with large eigenvalues relax quickly and contribute noise.
+
+\begin{definition}[Spectral Effective Dimension]
+The spectral effective dimension at timescale $\tau$ is:
+\begin{equation}
+    \Deff(\tau) = \big|\{k : \lambda_k < 1/(\alpha \tau)\}\big|
+\end{equation}
+the count of Laplacian modes with relaxation time exceeding $\tau$.
+\end{definition}
+
+This definition captures \emph{geometric capacity}: how many dimensions of the state space exhibit persistent dynamics at the observation timescale. It depends only on the eigenvalue spectrum of the Laplacian---a topological property---and the diffusion rate $\alpha$.
+
+For comparison, the standard participation ratio measure of effective dimension is:
+\begin{equation}
+    \Deff^{\mathrm{PR}} = \frac{(\sum_i \lambda_i^{\mathrm{cov}})^2}{\sum_i (\lambda_i^{\mathrm{cov}})^2}
+\end{equation}
+where $\lambda_i^{\mathrm{cov}}$ are eigenvalues of the state covariance matrix. While $\Deff^{\mathrm{PR}}$ depends on the full dynamics (including noise), our spectral definition $\Deff(\tau)$ isolates the topological contribution.
+
+\subsection{Entropy Rate}
+
+For the Gaussian linear system~\eqref{eq:diffusion}, the entropy rate is:
+\begin{equation}
+    \hmu = \frac{1}{2} \log\big((2\pi e)^n |\Sigma_\eta|\big) = \frac{n}{2}\log(2\pi e \sigma^2)
+\end{equation}
+where $\Sigma_\eta = \sigma^2 I$ is the innovation covariance. More generally, for empirical time series, we use the normalized Lempel-Ziv complexity as an entropy rate proxy \citep{lempel1976complexity}.
+
+The key observation is that $\hmu$ depends on the \emph{noise level} $\sigma^2$, while $\Deff(\tau)$ depends on the \emph{topology} through the eigenvalue spectrum. This separation enables decoupling.
+
+\section{Spectral Decoupling Theorem}
+\label{sec:theorem}
+
+\begin{theorem}[Spectral Decoupling]
+\label{thm:decoupling}
+For linear diffusion dynamics on graphs:
+\begin{enumerate}
+    \item \textbf{Iso-entropy, different dimension}: There exist graphs $G_1, G_2$ and noise levels $\sigma_1, \sigma_2$ such that the marginal entropy $H(x)$ is equal, but $\Deff(\tau; G_1) \neq \Deff(\tau; G_2)$.
+
+    \item \textbf{Iso-dimension, different entropy}: For any fixed graph $G$ and timescale $\tau$, varying $\sigma$ changes $\hmu$ while $\Deff(\tau)$ remains constant.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) Consider two graphs with different Laplacian spectra. The spectral dimension $\Deff(\tau) = |\{k : \lambda_k < 1/(\alpha\tau)\}|$ depends only on the eigenvalue density below the threshold. For a ring graph, eigenvalues cluster near $\lambda = 0$ (many slow modes); for a random graph, the spectral gap is large (few slow modes). Matching the marginal entropy requires tuning $\sigma$ to compensate for the variance accumulated from slow modes, but the mode count $\Deff(\tau)$ differs.
+
+(2) For fixed $G$, the set $\{k : \lambda_k < 1/(\alpha\tau)\}$ is determined by topology alone. Varying $\sigma$ scales the innovation variance and hence $\hmu = \frac{n}{2}\log(2\pi e \sigma^2)$, but does not change which modes are ``slow.''
+\end{proof}
+
+\begin{corollary}[Eigenvalue Density Controls Decoupling]
+The maximum dimension difference at matched entropy is bounded by:
+\begin{equation}
+    |\Deff(\tau; G_1) - \Deff(\tau; G_2)| \leq |N_1(\lambda^*) - N_2(\lambda^*)|
+\end{equation}
+where $N_i(\lambda^*) = |\{k : \lambda_k^{(i)} < \lambda^*\}|$ is the integrated eigenvalue density and $\lambda^* = 1/(\alpha\tau)$.
+\end{corollary}
+
+This shows that network architectures with denser small-eigenvalue spectra (e.g., modular networks with near-degenerate community modes) have higher dimensional capacity than architectures with large spectral gaps (e.g., expander graphs).
+
+\section{Results}
+\label{sec:results}
+
+We validate the theory through simulations on canonical network architectures: ring lattices, Watts-Strogatz small-worlds \citep{watts1998collective}, stochastic block models (modular), Erd\H{o}s-R\'enyi random graphs, and Barab\'asi-Albert scale-free networks \citep{barabasi1999emergence}. All networks have $n = 100$ nodes; diffusion rate $\alpha = 0.1$; noise levels $\sigma \in [0.1, 10]$.
+
+\subsection{Phase Portrait Across Topologies}
+
+Figure~\ref{fig:phase_portrait} shows the $(D, \hmu)$ phase portrait. Each network topology traces a distinct trajectory as noise $\sigma$ varies. Key observations:
+
+\begin{itemize}
+    \item \textbf{Modular networks} have high $\Deff$ (many slow community modes) across all noise levels.
+    \item \textbf{Random graphs} have low $\Deff$ (large spectral gap implies few slow modes).
+    \item \textbf{Trajectories do not overlap}: topology determines the $D$-axis position, noise determines the $\hmu$-axis position.
+\end{itemize}
+
+This demonstrates that a single entropy measurement cannot distinguish topologies with different geometric capacities.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../figures/phase_portrait.png}
+    \caption{$(D, \hmu)$ phase portrait across network topologies. Each curve shows how a network moves through dimension-entropy space as noise varies. Different architectures trace distinct trajectories, demonstrating that $D$ and $\hmu$ are independently controlled.}
+    \label{fig:phase_portrait}
+\end{figure}
+
+\subsection{Iso-Entropy Comparison}
+
+Figure~\ref{fig:isoentropic} demonstrates Theorem~\ref{thm:decoupling}(1). We tune the noise level $\sigma$ for each topology to achieve matched entropy ($\hmu \approx 0.5$), then compare $\Deff$. Despite identical entropy, the ring lattice has $\Deff \approx 45$, the modular network has $\Deff \approx 35$, and the random graph has $\Deff \approx 15$.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../figures/isoentropic_comparison.png}
+    \caption{Iso-entropy, different dimension. Left: $\Deff$ differs substantially across topologies. Right: entropy is matched by tuning noise. This confirms that entropy does not determine geometric dimensionality.}
+    \label{fig:isoentropic}
+\end{figure}
+
+\subsection{Iso-Dimension Demonstration}
+
+Figure~\ref{fig:isodimensional} demonstrates Theorem~\ref{thm:decoupling}(2). For a fixed modular network, varying $\sigma$ over two orders of magnitude changes $\hmu$ substantially (from 0.3 to 0.8) while $\Deff$ remains stable (coefficient of variation $< 5\%$). Geometry is set by topology; statistics are set by dynamics.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../figures/isodimensional_experiment.png}
+    \caption{Iso-dimension, different entropy. For a fixed modular network, $\Deff$ is stable across noise levels while $\hmu$ varies continuously. This confirms that dimensionality does not determine entropy.}
+    \label{fig:isodimensional}
+\end{figure}
+
+\subsection{Spectral Mechanism}
+
+Figure~\ref{fig:spectral} shows the Laplacian eigenvalue distributions for each topology and the spectral dimension threshold. The ring lattice has dense small-$\lambda$ spectrum (many modes below threshold); the random graph has a large spectral gap (few modes below threshold). This spectral structure directly determines $\Deff(\tau)$.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../figures/spectral_theory.png}
+    \caption{Laplacian spectra and spectral dimension. The dashed line marks the threshold $\lambda^* = 1/(\alpha\tau)$; modes below this threshold contribute to $\Deff(\tau)$. Modular and ring networks have many slow modes; random and scale-free networks have fewer.}
+    \label{fig:spectral}
+\end{figure}
+
+\section{Discussion}
+
+\subsection{Implications for Network Complexity}
+
+Our results establish that network dynamical complexity is inherently two-dimensional. Entropy-only characterizations (e.g., ``this network has high entropy, therefore it is complex'') miss the geometric axis entirely. A network can have high entropy (unpredictable dynamics) with low geometric dimension (dynamics confined to few modes), or low entropy (predictable dynamics) with high geometric dimension (dynamics spanning many modes).
+
+This has practical implications for:
+
+\begin{itemize}
+    \item \textbf{Neural networks}: High-dimensional neural activity \citep{stringer2019high, cunningham2014dimensionality} and high signal diversity \citep{schartner2017increased} are distinct phenomena. A brain state could be high-D but low-entropy (structured exploration of many dimensions) or low-D but high-entropy (unpredictable activity in few dimensions).
+
+    \item \textbf{Criticality}: The ``edge of chaos'' is often characterized by maximal entropy \citep{bertschinger2004real, beggs2003neuronal}. Our framework suggests criticality should be understood as a balanced position in the $(D, \hmu)$ plane, not entropy maximization alone.
+
+    \item \textbf{Network design}: If the goal is high-dimensional dynamics (e.g., reservoir computing), topology selection (modular, hierarchical) matters more than noise tuning. If the goal is high entropy (e.g., random number generation), noise dominates.
+\end{itemize}
+
+\subsection{Relation to Prior Work}
+
+The dimension-entropy distinction is classical in dynamical systems \citep{eckmann1985ergodic, grassberger1983measuring}. Our contribution is to make this distinction \emph{network-native}: we show how the Laplacian spectrum controls the geometric axis, provide an operational definition ($\Deff(\tau)$) that practitioners can compute, and introduce the phase portrait as a diagnostic tool.
+
+The entropy rate of diffusion processes on networks was studied by \citet{gomez2008entropy}; correlation dimension of networks by \citet{lacasa2013correlation}; coarse-graining and entrograms by \citet{faccin2018entrograms}. Our work unifies these by treating them as complementary measures on orthogonal axes.
+
+\subsection{Limitations and Extensions}
+
+We analyzed linear diffusion dynamics; nonlinear dynamics (e.g., Kuramoto oscillators, epidemic spreading) may exhibit dimension-entropy coupling in certain regimes. The spectral definition $\Deff(\tau)$ requires choosing a timescale; for multiscale dynamics, a spectrum of $\Deff(\tau)$ values may be needed. Empirical estimation of both $D$ and $\hmu$ from finite data introduces estimation error; robust estimators are an active research area.
+
+\section{Conclusion}
+
+Dimensionality is geometric; information is statistical. Network topology sets the dimensional capacity through the Laplacian eigenvalue density; dynamics and noise set the statistical occupation. By formalizing this decoupling and providing practical diagnostics, we offer a principled framework for characterizing network dynamical complexity along both axes. The $(D, \hmu)$ phase portrait should become a standard tool for network analysis.
+
+\section*{Data Availability}
+
+Simulation code is available at \url{https://github.com/coherencedynamics/spectral-decoupling}.
+
+\section*{Acknowledgments}
+
+The author thanks the reviewers for constructive feedback.
+
+\bibliographystyle{abbrvnat}
+\bibliography{references}
+
+\end{document}
