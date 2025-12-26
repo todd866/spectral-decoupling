@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.12)  26 DEC 2025 08:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.12)  26 DEC 2025 08:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -466,28 +466,28 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <../figures/phase_portrait.png, id=153, 708.9687pt x 496.4949pt>
 File: ../figures/phase_portrait.png Graphic file (type png)
 <use ../figures/phase_portrait.png>
-Package pdftex.def Info: ../figures/phase_portrait.png  used on input line 176.
+Package pdftex.def Info: ../figures/phase_portrait.png  used on input line 177.
 
 (pdftex.def)             Requested size: 399.29463pt x 279.63376pt.
 
 
 [4]
-<../figures/isoentropic_comparison.png, id=164, 713.3049pt x 334.1283pt>
+<../figures/isoentropic_comparison.png, id=165, 713.3049pt x 334.1283pt>
 File: ../figures/isoentropic_comparison.png Graphic file (type png)
 <use ../figures/isoentropic_comparison.png>
 Package pdftex.def Info: ../figures/isoentropic_comparison.png  used on input l
-ine 187.
+ine 190.
 (pdftex.def)             Requested size: 422.77664pt x 198.04149pt.
-<../figures/isodimensional_experiment.png, id=167, 713.3049pt x 297.2706pt>
+<../figures/isodimensional_experiment.png, id=168, 713.3049pt x 297.2706pt>
 File: ../figures/isodimensional_experiment.png Graphic file (type png)
 <use ../figures/isodimensional_experiment.png>
 Package pdftex.def Info: ../figures/isodimensional_experiment.png  used on inpu
-t line 198.
+t line 201.
 (pdftex.def)             Requested size: 422.77664pt x 176.19553pt.
-<../figures/spectral_theory.png, id=169, 713.3049pt x 592.1322pt>
+<../figures/spectral_theory.png, id=170, 713.3049pt x 592.1322pt>
 File: ../figures/spectral_theory.png Graphic file (type png)
 <use ../figures/spectral_theory.png>
-Package pdftex.def Info: ../figures/spectral_theory.png  used on input line 209
+Package pdftex.def Info: ../figures/spectral_theory.png  used on input line 212
 .
 (pdftex.def)             Requested size: 422.77664pt x 350.96323pt.
 
@@ -496,7 +496,7 @@ Package pdftex.def Info: ../figures/spectral_theory.png  used on input line 209
 <../figures/capacity_curve.png, id=181, 641.0349pt x 424.2249pt>
 File: ../figures/capacity_curve.png Graphic file (type png)
 <use ../figures/capacity_curve.png>
-Package pdftex.def Info: ../figures/capacity_curve.png  used on input line 220.
+Package pdftex.def Info: ../figures/capacity_curve.png  used on input line 223.
 
 (pdftex.def)             Requested size: 399.29463pt x 264.24013pt.
 
@@ -505,9 +505,11 @@ Package pdftex.def Info: ../figures/capacity_curve.png  used on input line 220.
 
 [7 <../figures/isodimensional_experiment.png>]
 
-[8 <../figures/spectral_theory.png>])
+[8 <../figures/spectral_theory.png>]
 
-[9 <../figures/capacity_curve.png>] (./spectral_decoupling.aux)
+[9 <../figures/capacity_curve.png>])
+
+[10] (./spectral_decoupling.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -516,13 +518,13 @@ Package rerunfilecheck Info: File `spectral_decoupling.out' has not changed.
 (rerunfilecheck)             Checksum: 3B5DC93AF24DCB23194B62796BCEB727;2537.
  ) 
 Here is how much of TeX's memory you used:
- 11577 strings out of 474662
- 175760 string characters out of 5751108
- 582610 words of memory out of 5000000
- 34403 multiletter control sequences out of 15000+600000
- 577617 words of font info for 86 fonts, out of 8000000 for 9000
+ 11584 strings out of 474662
+ 175826 string characters out of 5751108
+ 583807 words of memory out of 5000000
+ 34406 multiletter control sequences out of 15000+600000
+ 578545 words of font info for 89 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 75i,7n,79p,974b,662s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,7n,79p,992b,662s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/iantodd/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen
 /ec/ectt1200.600pk> </Users/iantodd/Library/texlive/2025basic/texmf-var/fonts/p
 k/ljfour/jknappen/ec/tcrm1200.600pk> </Users/iantodd/Library/texlive/2025basic/
@@ -540,20 +542,21 @@ our/jknappen/ec/ectt1095.600pk> </Users/iantodd/Library/texlive/2025basic/texmf
 -var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </Users/iantodd/Library/texliv
 e/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </Users/ianto
 dd/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2074.600
-pk></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex
-10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmmi12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy8.pfb>
-Output written on spectral_decoupling.pdf (9 pages, 1215303 bytes).
+pk></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
+8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mex10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on spectral_decoupling.pdf (10 pages, 1224992 bytes).
 PDF statistics:
- 733 PDF objects out of 1000 (max. 8388607)
- 285 compressed objects within 3 object streams
- 65 named destinations out of 1000 (max. 500000)
+ 742 PDF objects out of 1000 (max. 8388607)
+ 291 compressed objects within 3 object streams
+ 66 named destinations out of 1000 (max. 500000)
  162 words of extra memory for PDF output out of 10000 (max. 10000000)
 

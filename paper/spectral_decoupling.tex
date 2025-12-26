@@ -34,7 +34,7 @@
 \maketitle
 
 \begin{abstract}
-The distinction between geometric dimension and entropy is classical in dynamical systems theory, yet network science often implicitly conflates these axes when characterizing dynamical complexity. This tutorial paper makes the dimension-entropy distinction explicit for network dynamics via Laplacian spectral analysis. We define \emph{spectral capacity} $\Clam$ as the count of non-trivial Laplacian modes with eigenvalues below a threshold $\lambda^*$---a purely topological measure---and show analytically that it decouples from state entropy, which depends on noise level. The closed-form decomposition $H = 2\log\sigma + B(G)$ separates the noise contribution from the topology-dependent baseline. Simulations across canonical architectures (ring, small-world, modular, random, scale-free) validate the theory and illustrate the $(C, H)$ phase portrait as a diagnostic tool. We provide code and figures for pedagogical use.
+The distinction between geometric dimension and entropy is classical in dynamical systems theory, yet network science often implicitly conflates these axes when characterizing dynamical complexity. This tutorial paper makes the dimension-entropy distinction explicit for network dynamics via Laplacian spectral analysis. We define \emph{spectral capacity} (slow-mode count) $\Clam$ as the count of non-trivial Laplacian modes with eigenvalues below a threshold $\lambda^*$---a purely topological measure---and show analytically that it decouples from state entropy, which depends on noise level. The closed-form decomposition $H = 2\log\sigma + B(G)$ separates the noise contribution from the topology-dependent baseline. Simulations across canonical architectures (ring, small-world, modular, random, scale-free) validate the theory and illustrate the $(C, H)$ phase portrait as a diagnostic tool. We provide code and figures for pedagogical use.
 \end{abstract}
 
 \textbf{Keywords:} network dynamics, spectral capacity, entropy, Laplacian, complexity, tutorial
@@ -107,18 +107,19 @@ Crucially, $\Clam$ depends \emph{only on topology}---it is invariant to noise $\
 
 \paragraph{Stationarity.} The trivial mode ($\lambda_1 = 0$) has eigenvalue 1 in the transition matrix $I - \alpha L$, so with additive noise it becomes a random walk rather than a stationary process. We project out this mode by centering: $\tilde{x}(t) = x(t) - \bar{x}(t)$, restricting dynamics to the $(n-1)$ nontrivial modes where stationarity holds.
 
-\paragraph{Closed-form entropy.} In the Laplacian eigenbasis, mode $k \geq 2$ is an AR(1) process with coefficient $a_k = 1 - \alpha\lambda_k$. The stationary variance is:
+\paragraph{Closed-form entropy.} In the Laplacian eigenbasis, mode $k \geq 2$ is an AR(1) process with coefficient $a_k = 1 - \alpha\lambda_k$. Since $1 - a_k^2 = 1 - (1-\alpha\lambda_k)^2 = \alpha\lambda_k(2 - \alpha\lambda_k)$, the stationary variance is:
 \begin{equation}
     \mathrm{Var}(c_k) = \frac{\sigma^2}{1 - a_k^2} = \frac{\sigma^2}{\alpha\lambda_k(2 - \alpha\lambda_k)}
 \end{equation}
 
-The \emph{state entropy proxy} is the mean log covariance eigenvalue over nontrivial modes:
+The \emph{state entropy proxy} $H$ is the mean log variance over the $(n-1)$ nontrivial Laplacian modes ($k \geq 2$):
 \begin{equation}
     \label{eq:entropy_decomp}
     H = \frac{1}{n-1}\sum_{k=2}^{n} \log \mathrm{Var}(c_k) = 2\log\sigma - \frac{1}{n-1}\sum_{k=2}^{n} \log\big(\alpha\lambda_k(2 - \alpha\lambda_k)\big)
 \end{equation}
+This equals $\frac{1}{n-1}\log\det\Sigma_{\perp\mathbf{1}}$, where $\Sigma_{\perp\mathbf{1}}$ is the stationary covariance restricted to the mean-zero subspace.
 
-This decomposition is key: noise contributes an \emph{additive shift} ($2\log\sigma$), while topology contributes a \emph{spectrum-dependent offset}. For fixed topology, $\sigma$ moves the system along the entropy axis; across topologies, the Laplacian spectrum sets the baseline entropy at any given $\sigma$.
+The decomposition is key: noise contributes an \emph{additive shift} ($2\log\sigma$), while topology contributes a \emph{spectrum-dependent baseline}. For fixed topology, $\sigma$ moves the system along the entropy axis; across topologies, the Laplacian spectrum sets the baseline entropy at any given $\sigma$.
 
 \begin{remark}[Entropy terminology]
 This is \textbf{not} the entropy rate $h_\mu$, which measures unpredictability per time step. Our proxy characterizes the \emph{spread} of the stationary distribution---differential entropy of the state, not temporal uncertainty.
@@ -174,13 +175,15 @@ Figure~\ref{fig:phase_portrait} shows the $(C, H)$ phase portrait. Each topology
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.85\textwidth]{../figures/phase_portrait.png}
-    \caption{Capacity-entropy phase portrait. Each topology has fixed capacity (horizontal position); noise moves systems vertically along the $\sigma$ range shown. Error bars indicate capacity variability across graph realizations. Topology and noise control orthogonal axes.}
+    \caption{Capacity-entropy phase portrait. Each topology has fixed capacity (horizontal position); noise moves systems vertically along the $\sigma$ range shown. Horizontal error bars show capacity variability over 30 graph realizations; entropy traces use one representative instance per topology. \emph{Reading the portrait}: systems at the same height have equal state entropy; systems in the same column have equal capacity. Topology and noise control orthogonal axes.}
     \label{fig:phase_portrait}
 \end{figure}
 
 \subsection{Iso-Entropy Comparison}
 
 Figure~\ref{fig:isoentropic} demonstrates Proposition~\ref{prop:decoupling}(1). We tune $\sigma$ for each topology to match state entropy at $H \approx 1.0$. Despite matched entropy: Ring has $C = 6$, Modular has $C = 3$, Random has $C = 0$.
+
+\emph{Interpretation}: If two systems have the same $H$ but different $C$, they are equally ``spread'' in state space but differ in how many slow coordinates support persistent structure. High-capacity networks can maintain more independent slow patterns at the same overall variance.
 
 \begin{figure}[ht]
     \centering
