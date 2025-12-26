@@ -1,30 +1,9 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{11}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
-
-\bibitem[Barab{\'a}si and Albert(1999)]{barabasi1999emergence}
-A.-L. Barab{\'a}si and R.~Albert.
-\newblock Emergence of scaling in random networks.
-\newblock \emph{Science}, 286\penalty0 (5439):\penalty0 509--512, 1999.
-\newblock \doi{10.1126/science.286.5439.509}.
-
-\bibitem[Beggs and Plenz(2003)]{beggs2003neuronal}
-J.~M. Beggs and D.~Plenz.
-\newblock Neuronal avalanches in neocortical circuits.
-\newblock \emph{Journal of Neuroscience}, 23\penalty0 (35):\penalty0
-  11167--11177, 2003.
-\newblock \doi{10.1523/JNEUROSCI.23-35-11167.2003}.
-
-\bibitem[Bertschinger and Natschl{\"a}ger(2004)]{bertschinger2004real}
-N.~Bertschinger and T.~Natschl{\"a}ger.
-\newblock Real-time computation at the edge of chaos in recurrent neural
-  networks.
-\newblock \emph{Neural Computation}, 16\penalty0 (7):\penalty0 1413--1436,
-  2004.
-\newblock \doi{10.1162/089976604323057443}.
 
 \bibitem[Braunstein et~al.(2006)Braunstein, Ghosh, and
   Severini]{braunstein2006laplacian}
@@ -34,13 +13,6 @@ S.~L. Braunstein, S.~Ghosh, and S.~Severini.
 \newblock \emph{Annals of Combinatorics}, 10\penalty0 (3):\penalty0 291--317,
   2006.
 \newblock \doi{10.1007/s00026-006-0289-3}.
-
-\bibitem[Cunningham and Yu(2014)]{cunningham2014dimensionality}
-J.~P. Cunningham and B.~M. Yu.
-\newblock Dimensionality reduction for large-scale neural recordings.
-\newblock \emph{Nature Neuroscience}, 17\penalty0 (11):\penalty0 1500--1509,
-  2014.
-\newblock \doi{10.1038/nn.3776}.
 
 \bibitem[Eckmann and Ruelle(1985)]{eckmann1985ergodic}
 J.-P. Eckmann and D.~Ruelle.
@@ -82,13 +54,6 @@ L.~Lacasa and J.~G{\'o}mez-Garde{\~n}es.
   2013.
 \newblock \doi{10.1103/PhysRevLett.110.168703}.
 
-\bibitem[Lempel and Ziv(1976)]{lempel1976complexity}
-A.~Lempel and J.~Ziv.
-\newblock On the complexity of finite sequences.
-\newblock \emph{IEEE Transactions on Information Theory}, 22\penalty0
-  (1):\penalty0 75--81, 1976.
-\newblock \doi{10.1109/TIT.1976.1055501}.
-
 \bibitem[Sauer et~al.(1991)Sauer, Yorke, and Casdagli]{sauer1991embedology}
 T.~Sauer, J.~A. Yorke, and M.~Casdagli.
 \newblock Embedology.
@@ -118,11 +83,5 @@ F.~Takens.
 \newblock In \emph{Dynamical Systems and Turbulence, Warwick 1980}, volume 898
   of \emph{Lecture Notes in Mathematics}, pages 366--381. Springer, 1981.
 \newblock \doi{10.1007/BFb0091924}.
-
-\bibitem[Watts and Strogatz(1998)]{watts1998collective}
-D.~J. Watts and S.~H. Strogatz.
-\newblock Collective dynamics of `small-world' networks.
-\newblock \emph{Nature}, 393\penalty0 (6684):\penalty0 440--442, 1998.
-\newblock \doi{10.1038/30918}.
 
 \end{thebibliography}

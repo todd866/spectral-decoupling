@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.12)  26 DEC 2025 07:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.12)  26 DEC 2025 08:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -351,7 +351,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen177
 \Gm@dimlist=\toks31
 )
-\c@theorem=\count302
+\c@proposition=\count302
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
 ef
@@ -361,24 +361,24 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (./spectral_decoupling.aux)
 \openout1 = `spectral_decoupling.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -404,7 +404,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 33.
+Package hyperref Info: Link coloring OFF on input line 32.
  (./spectral_decoupling.out) (./spectral_decoupling.out)
 \@outlinefile=\write3
 \openout3 = `spectral_decoupling.out'.
@@ -444,12 +444,12 @@ Package hyperref Info: Link coloring OFF on input line 33.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
 
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -463,76 +463,63 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [2]
 
 [3]
-<../figures/phase_portrait.png, id=152, 508.7808pt x 408.0846pt>
+<../figures/phase_portrait.png, id=146, 641.0349pt x 423.984pt>
 File: ../figures/phase_portrait.png Graphic file (type png)
 <use ../figures/phase_portrait.png>
-Package pdftex.def Info: ../figures/phase_portrait.png  used on input line 169.
+Package pdftex.def Info: ../figures/phase_portrait.png  used on input line 161.
 
-(pdftex.def)             Requested size: 375.80544pt x 301.44235pt.
-<../figures/isoentropic_comparison.png, id=156, 715.2321pt x 286.9119pt>
+(pdftex.def)             Requested size: 399.29463pt x 264.09007pt.
+<../figures/isoentropic_comparison.png, id=150, 713.3049pt x 334.1283pt>
 File: ../figures/isoentropic_comparison.png Graphic file (type png)
 <use ../figures/isoentropic_comparison.png>
 Package pdftex.def Info: ../figures/isoentropic_comparison.png  used on input l
-ine 180.
-(pdftex.def)             Requested size: 422.77664pt x 169.59613pt.
-
-
-[4]
-<../figures/isodimensional_experiment.png, id=169, 715.473pt x 286.9119pt>
+ine 172.
+(pdftex.def)             Requested size: 422.77664pt x 198.04149pt.
+<../figures/isodimensional_experiment.png, id=153, 713.3049pt x 297.2706pt>
 File: ../figures/isodimensional_experiment.png Graphic file (type png)
 <use ../figures/isodimensional_experiment.png>
 Package pdftex.def Info: ../figures/isodimensional_experiment.png  used on inpu
-t line 191.
-(pdftex.def)             Requested size: 422.77664pt x 169.53484pt.
-<../figures/spectral_theory.png, id=171, 715.473pt x 570.2103pt>
+t line 183.
+(pdftex.def)             Requested size: 422.77664pt x 176.19553pt.
+
+
+[4 <../figures/phase_portrait.png>]
+<../figures/spectral_theory.png, id=162, 713.3049pt x 592.1322pt>
 File: ../figures/spectral_theory.png Graphic file (type png)
 <use ../figures/spectral_theory.png>
-Package pdftex.def Info: ../figures/spectral_theory.png  used on input line 202
+Package pdftex.def Info: ../figures/spectral_theory.png  used on input line 194
 .
-(pdftex.def)             Requested size: 422.77664pt x 336.9345pt.
+(pdftex.def)             Requested size: 422.77664pt x 350.96323pt.
 
 
-[5 <../figures/phase_portrait.png>]
-Overfull \hbox (6.90211pt too wide) in paragraph at lines 218--219
-[]\T1/cmr/bx/n/12 Criticality\T1/cmr/m/n/12 : The ``edge of chaos'' is of-ten c
-har-ac-ter-ized by max-i-mal en-tropy [[]Bertschinger
- []
+[5 <../figures/isoentropic_comparison.png> <../figures/isodimensional_experimen
+t.png>]
 
+[6 <../figures/spectral_theory.png>] (./spectral_decoupling.bbl
 
+[7])
 
-[6 <../figures/isoentropic_comparison.png>]
-Overfull \hbox (33.80676pt too wide) in paragraph at lines 239--240
-\T1/cmr/m/n/12 Simulation code is avail-able at []$\T1/cmtt/m/n/12 https : / / 
-github . com / coherencedynamics / spectral-[]decoupling$[]\T1/cmr/m/n/12 . 
- []
-
-(./spectral_decoupling.bbl
-
-[7 <../figures/isodimensional_experiment.png>]
-
-[8 <../figures/spectral_theory.png>])
-
-[9] (./spectral_decoupling.aux)
+[8] (./spectral_decoupling.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `spectral_decoupling.out' has not changed.
-(rerunfilecheck)             Checksum: 7084653CFA79A9E8667EABB1163137CF;2576.
+(rerunfilecheck)             Checksum: 014D879886DCE2159B493DEC52CFD8C1;2371.
  ) 
 Here is how much of TeX's memory you used:
- 11579 strings out of 474662
- 175858 string characters out of 5751108
- 582714 words of memory out of 5000000
- 34404 multiletter control sequences out of 15000+600000
+ 11555 strings out of 474662
+ 175273 string characters out of 5751108
+ 582183 words of memory out of 5000000
+ 34389 multiletter control sequences out of 15000+600000
  577617 words of font info for 86 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 75i,7n,79p,1196b,566s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,7n,79p,1023b,601s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/iantodd/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen
 /ec/ectt1200.600pk> </Users/iantodd/Library/texlive/2025basic/texmf-var/fonts/p
 k/ljfour/jknappen/ec/tcrm1200.600pk> </Users/iantodd/Library/texlive/2025basic/
-texmf-var/fonts/pk/ljfour/jknappen/ec/ecbi1200.600pk> </Users/iantodd/Library/t
-exlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </Users/
+texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </Users/iantodd/Library/t
+exlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbi1200.600pk> </Users/
 iantodd/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti120
 0.600pk> </Users/iantodd/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jk
 nappen/ec/ecbx1728.600pk> </Users/iantodd/Library/texlive/2025basic/texmf-var/f
@@ -554,12 +541,11 @@ msfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts
-/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on spectral_decoupling.pdf (9 pages, 1144520 bytes).
+pe1/public/amsfonts/cm/cmsy8.pfb>
+Output written on spectral_decoupling.pdf (8 pages, 940169 bytes).
 PDF statistics:
- 735 PDF objects out of 1000 (max. 8388607)
- 296 compressed objects within 3 object streams
- 66 named destinations out of 1000 (max. 500000)
+ 705 PDF objects out of 1000 (max. 8388607)
+ 267 compressed objects within 3 object streams
+ 57 named destinations out of 1000 (max. 500000)
  149 words of extra memory for PDF output out of 10000 (max. 10000000)
 

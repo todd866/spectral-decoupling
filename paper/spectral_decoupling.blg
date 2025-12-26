@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: spectral_decoupling.aux
 The style file: abbrvnat.bst
 Database file #1: references.bib
-You've used 17 entries,
+You've used 11 entries,
             2773 wiz_defined-function locations,
-            735 strings with 7792 characters,
-and the built_in function-call counts, 8613 in all, are:
-= -- 832
-> -- 427
-< -- 15
-+ -- 143
-- -- 126
-* -- 736
-:= -- 1302
-add.period$ -- 68
-call.type$ -- 17
-change.case$ -- 93
-chr.to.int$ -- 17
-cite$ -- 34
-duplicate$ -- 368
-empty$ -- 707
-format.name$ -- 165
-if$ -- 1815
+            685 strings with 6790 characters,
+and the built_in function-call counts, 5739 in all, are:
+= -- 544
+> -- 301
+< -- 9
++ -- 101
+- -- 90
+* -- 496
+:= -- 870
+add.period$ -- 44
+call.type$ -- 11
+change.case$ -- 63
+chr.to.int$ -- 11
+cite$ -- 22
+duplicate$ -- 248
+empty$ -- 461
+format.name$ -- 111
+if$ -- 1209
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 17
-newline$ -- 109
-num.names$ -- 68
-pop$ -- 143
+missing$ -- 11
+newline$ -- 73
+num.names$ -- 44
+pop$ -- 101
 preamble$ -- 1
-purify$ -- 76
+purify$ -- 52
 quote$ -- 0
-skip$ -- 292
+skip$ -- 196
 stack$ -- 0
-substring$ -- 467
-swap$ -- 37
+substring$ -- 287
+swap$ -- 31
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 187
+type$ -- 121
 warning$ -- 0
-while$ -- 84
+while$ -- 54
 width$ -- 0
-write$ -- 262
+write$ -- 172
