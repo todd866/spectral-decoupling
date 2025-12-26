@@ -132,13 +132,7 @@ For linear diffusion dynamics on graphs:
 (2) $\Clam = |\{k : 0 < \lambda_k < \lambda^*\}|$ is determined by topology alone. Varying $\sigma$ scales covariance eigenvalues, changing state entropy, but does not change which Laplacian modes are below threshold.
 \end{proof}
 
-\begin{corollary}
-The capacity difference between topologies is bounded by their integrated eigenvalue density difference:
-\begin{equation}
-    |C(\lambda^*; G_1) - C(\lambda^*; G_2)| = |N_1(\lambda^*) - N_2(\lambda^*)|
-\end{equation}
-where $N_i(\lambda^*) = |\{k : 0 < \lambda_k^{(i)} < \lambda^*\}|$.
-\end{corollary}
+This makes explicit that capacity differences between topologies are \emph{entirely determined} by their integrated eigenvalue densities $N_i(\lambda^*) = |\{k : 0 < \lambda_k^{(i)} < \lambda^*\}|$. Graph families with predictable spectral densities (e.g., $d$-regular graphs, stochastic block models) thus have predictable capacity scaling.
 
 \section{Results}
 \label{sec:results}
@@ -214,7 +208,7 @@ The dimension-entropy distinction is classical \citep{eckmann1985ergodic, grassb
 
 \subsection{Limitations}
 
-We analyzed linear diffusion; nonlinear dynamics may couple capacity and entropy in certain regimes. The threshold $\lambda^*$ must be chosen appropriately for the network scale. Empirical estimation from finite data requires care.
+We analyzed linear diffusion; nonlinear dynamics may couple capacity and entropy in certain regimes. The threshold $\lambda^*$ must be chosen appropriately---we recommend either fixing a timescale $\tau$ and setting $\lambda^* = 1/(\alpha\tau)$, or choosing $\lambda^*$ as a fixed percentile of the spectrum to enable cross-network comparisons. Empirical estimation from finite data requires care.
 
 \section{Conclusion}
 

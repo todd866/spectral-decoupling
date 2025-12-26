@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.12)  26 DEC 2025 08:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.12)  26 DEC 2025 08:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -463,41 +463,40 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [2]
 
 [3]
-<../figures/phase_portrait.png, id=146, 641.0349pt x 423.984pt>
+<../figures/phase_portrait.png, id=144, 641.0349pt x 423.984pt>
 File: ../figures/phase_portrait.png Graphic file (type png)
 <use ../figures/phase_portrait.png>
-Package pdftex.def Info: ../figures/phase_portrait.png  used on input line 161.
+Package pdftex.def Info: ../figures/phase_portrait.png  used on input line 155.
 
 (pdftex.def)             Requested size: 399.29463pt x 264.09007pt.
-<../figures/isoentropic_comparison.png, id=150, 713.3049pt x 334.1283pt>
+<../figures/isoentropic_comparison.png, id=148, 713.3049pt x 334.1283pt>
 File: ../figures/isoentropic_comparison.png Graphic file (type png)
 <use ../figures/isoentropic_comparison.png>
 Package pdftex.def Info: ../figures/isoentropic_comparison.png  used on input l
-ine 172.
+ine 166.
 (pdftex.def)             Requested size: 422.77664pt x 198.04149pt.
-<../figures/isodimensional_experiment.png, id=153, 713.3049pt x 297.2706pt>
+<../figures/isodimensional_experiment.png, id=151, 713.3049pt x 297.2706pt>
 File: ../figures/isodimensional_experiment.png Graphic file (type png)
 <use ../figures/isodimensional_experiment.png>
 Package pdftex.def Info: ../figures/isodimensional_experiment.png  used on inpu
-t line 183.
+t line 177.
 (pdftex.def)             Requested size: 422.77664pt x 176.19553pt.
 
 
 [4 <../figures/phase_portrait.png>]
-<../figures/spectral_theory.png, id=162, 713.3049pt x 592.1322pt>
+<../figures/spectral_theory.png, id=161, 713.3049pt x 592.1322pt>
 File: ../figures/spectral_theory.png Graphic file (type png)
 <use ../figures/spectral_theory.png>
-Package pdftex.def Info: ../figures/spectral_theory.png  used on input line 194
+Package pdftex.def Info: ../figures/spectral_theory.png  used on input line 188
 .
 (pdftex.def)             Requested size: 422.77664pt x 350.96323pt.
 
 
-[5 <../figures/isoentropic_comparison.png> <../figures/isodimensional_experimen
-t.png>]
+[5 <../figures/isoentropic_comparison.png>] (./spectral_decoupling.bbl
 
-[6 <../figures/spectral_theory.png>] (./spectral_decoupling.bbl
+[6 <../figures/isodimensional_experiment.png>]
 
-[7])
+[7 <../figures/spectral_theory.png>])
 
 [8] (./spectral_decoupling.aux)
  ***********
@@ -508,10 +507,10 @@ Package rerunfilecheck Info: File `spectral_decoupling.out' has not changed.
 (rerunfilecheck)             Checksum: 014D879886DCE2159B493DEC52CFD8C1;2371.
  ) 
 Here is how much of TeX's memory you used:
- 11555 strings out of 474662
- 175273 string characters out of 5751108
+ 11551 strings out of 474662
+ 175188 string characters out of 5751108
  582183 words of memory out of 5000000
- 34389 multiletter control sequences out of 15000+600000
+ 34387 multiletter control sequences out of 15000+600000
  577617 words of font info for 86 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  75i,7n,79p,1023b,601s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -542,10 +541,10 @@ c/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmsy8.pfb>
-Output written on spectral_decoupling.pdf (8 pages, 940169 bytes).
+Output written on spectral_decoupling.pdf (8 pages, 940934 bytes).
 PDF statistics:
- 705 PDF objects out of 1000 (max. 8388607)
- 267 compressed objects within 3 object streams
- 57 named destinations out of 1000 (max. 500000)
+ 701 PDF objects out of 1000 (max. 8388607)
+ 265 compressed objects within 3 object streams
+ 55 named destinations out of 1000 (max. 500000)
  149 words of extra memory for PDF output out of 10000 (max. 10000000)
 
