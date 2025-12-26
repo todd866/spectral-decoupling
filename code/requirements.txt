@@ -1,0 +1,7 @@
+# Requirements for spectral_decoupling.py
+# Pin versions to ensure reproducibility
+
+numpy>=1.21.0
+scipy>=1.7.0
+networkx>=2.6.0
+matplotlib>=3.4.0

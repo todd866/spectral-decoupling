@@ -34,10 +34,10 @@
 \maketitle
 
 \begin{abstract}
-Network science commonly uses entropy-based measures to characterize dynamical complexity, often implicitly treating high entropy as synonymous with high-dimensional dynamics. We establish that \emph{spectral capacity} (the count of slow Laplacian modes) and \emph{state entropy} are independent axes of network dynamical complexity, controlled by distinct features: topology governs capacity via eigenvalue density, while noise governs entropy. We define spectral capacity $\Clam$ as the count of non-trivial Laplacian modes with eigenvalues below a threshold $\lambda^*$, and demonstrate that networks with matched state entropy can differ dramatically in capacity, and vice versa. Simulations across canonical architectures (ring, small-world, modular, random, scale-free) show that each topology occupies a distinct position on the capacity axis, while noise moves systems along the entropy axis. These results provide a principled two-axis framework for network complexity.
+The distinction between geometric dimension and entropy is classical in dynamical systems theory, yet network science often implicitly conflates these axes when characterizing dynamical complexity. This tutorial paper makes the dimension-entropy distinction explicit for network dynamics via Laplacian spectral analysis. We define \emph{spectral capacity} $\Clam$ as the count of non-trivial Laplacian modes with eigenvalues below a threshold $\lambda^*$---a purely topological measure---and show analytically that it decouples from state entropy, which depends on noise level. The closed-form decomposition $H = 2\log\sigma + B(G)$ separates the noise contribution from the topology-dependent baseline. Simulations across canonical architectures (ring, small-world, modular, random, scale-free) validate the theory and illustrate the $(C, H)$ phase portrait as a diagnostic tool. We provide code and figures for pedagogical use.
 \end{abstract}
 
-\textbf{Keywords:} network dynamics, spectral capacity, entropy, Laplacian, complexity
+\textbf{Keywords:} network dynamics, spectral capacity, entropy, Laplacian, complexity, tutorial
 
 \section{Introduction}
 
@@ -49,15 +49,14 @@ However, classical results in dynamical systems establish that dimension and ent
 The spectral capacity $\Clam$ we define is a \emph{mode-counting measure}---the number of slow Laplacian modes below a threshold. It is \textbf{not} a fractal dimension in the Grassberger--Procaccia sense. We use ``capacity'' to emphasize that this measures how many persistent degrees of freedom the topology \emph{supports}, not the fractal structure of an attractor.
 \end{remark}
 
-We address how network topology interacts with capacity-entropy decoupling. Our contributions are:
-
+\paragraph{Scope and contribution.} This paper is a \emph{tutorial synthesis} that makes the classical dimension-entropy distinction network-native. The underlying insight is not new; our contribution is:
 \begin{enumerate}
-    \item \textbf{Spectral capacity}: We define $\Clam$ as the count of non-trivial Laplacian modes with $\lambda_k < \lambda^*$, a purely topological measure (Section~\ref{sec:theory}).
-
-    \item \textbf{Decoupling proposition}: We show that networks can have matched state entropy with different capacity, and vice versa (Section~\ref{sec:theorem}).
-
-    \item \textbf{Phase portrait diagnostic}: We introduce the $(C, H)$ phase portrait showing that different topologies occupy distinct capacity positions (Section~\ref{sec:results}).
+    \item A clean \textbf{spectral capacity} definition via Laplacian eigenvalue counting (Section~\ref{sec:theory});
+    \item A \textbf{closed-form decomposition} of state entropy into noise and topology components, yielding a rigorous decoupling proof (Section~\ref{sec:theorem});
+    \item The $(C, H)$ \textbf{phase portrait} as a visual diagnostic, with validated simulations and reproducible code (Section~\ref{sec:results}).
 \end{enumerate}
+
+We aim for pedagogical clarity rather than claiming conceptual novelty. The value is in making an important distinction explicit and computable for network practitioners.
 
 \section{Theoretical Framework}
 \label{sec:theory}
@@ -104,32 +103,54 @@ This captures how many slow modes the topology supports. For $\lambda^* = 0.1$:
 Crucially, $\Clam$ depends \emph{only on topology}---it is invariant to noise $\sigma$.
 
 \subsection{State Entropy Proxy}
+\label{sec:entropy}
 
-For the stationary distribution of~\eqref{eq:diffusion}, the differential entropy scales with:
+\paragraph{Stationarity.} The trivial mode ($\lambda_1 = 0$) has eigenvalue 1 in the transition matrix $I - \alpha L$, so with additive noise it becomes a random walk rather than a stationary process. We project out this mode by centering: $\tilde{x}(t) = x(t) - \bar{x}(t)$, restricting dynamics to the $(n-1)$ nontrivial modes where stationarity holds.
+
+\paragraph{Closed-form entropy.} In the Laplacian eigenbasis, mode $k \geq 2$ is an AR(1) process with coefficient $a_k = 1 - \alpha\lambda_k$. The stationary variance is:
 \begin{equation}
-    H \propto \frac{1}{n} \log \det(\mathrm{Cov}[x]) = \frac{1}{n} \sum_i \log \lambda_i^{\mathrm{cov}}
+    \mathrm{Var}(c_k) = \frac{\sigma^2}{1 - a_k^2} = \frac{\sigma^2}{\alpha\lambda_k(2 - \alpha\lambda_k)}
 \end{equation}
-where $\lambda_i^{\mathrm{cov}}$ are covariance eigenvalues. We use the mean log covariance eigenvalue as a \emph{state entropy proxy}. This is \textbf{not} the entropy rate $h_\mu$ of the process; it characterizes the spread of the stationary distribution.
 
-The state entropy proxy depends on \emph{noise level} $\sigma$, not topology directly.
+The \emph{state entropy proxy} is the mean log covariance eigenvalue over nontrivial modes:
+\begin{equation}
+    \label{eq:entropy_decomp}
+    H = \frac{1}{n-1}\sum_{k=2}^{n} \log \mathrm{Var}(c_k) = 2\log\sigma - \frac{1}{n-1}\sum_{k=2}^{n} \log\big(\alpha\lambda_k(2 - \alpha\lambda_k)\big)
+\end{equation}
+
+This decomposition is key: noise contributes an \emph{additive shift} ($2\log\sigma$), while topology contributes a \emph{spectrum-dependent offset}. For fixed topology, $\sigma$ moves the system along the entropy axis; across topologies, the Laplacian spectrum sets the baseline entropy at any given $\sigma$.
+
+\begin{remark}[Entropy terminology]
+This is \textbf{not} the entropy rate $h_\mu$, which measures unpredictability per time step. Our proxy characterizes the \emph{spread} of the stationary distribution---differential entropy of the state, not temporal uncertainty.
+\end{remark}
+
+\begin{remark}[Capacity terminology]
+We use ``spectral capacity'' to mean slow-mode count, distinct from channel capacity (information theory) or flow capacity (network optimization). The term emphasizes that topology \emph{supports} a certain number of persistent degrees of freedom.
+\end{remark}
 
 \section{Capacity-Entropy Decoupling}
 \label{sec:theorem}
 
 \begin{proposition}[Spectral Decoupling]
 \label{prop:decoupling}
-For linear diffusion dynamics on graphs:
+For linear diffusion dynamics~\eqref{eq:diffusion} on connected graphs with dynamics restricted to nontrivial modes:
 \begin{enumerate}
-    \item \textbf{Iso-entropy, different capacity}: There exist graphs $G_1, G_2$ and noise levels $\sigma_1, \sigma_2$ such that state entropy is matched, but $C(\lambda^*; G_1) \neq C(\lambda^*; G_2)$.
+    \item \textbf{Iso-entropy, different capacity}: For any two graphs $G_1, G_2$ with different capacities $C(\lambda^*; G_1) \neq C(\lambda^*; G_2)$, there exist noise levels $\sigma_1, \sigma_2$ such that $H(G_1, \sigma_1) = H(G_2, \sigma_2)$.
 
-    \item \textbf{Fixed capacity, variable entropy}: For any fixed graph $G$, varying $\sigma$ changes state entropy while $\Clam$ remains constant.
+    \item \textbf{Fixed capacity, variable entropy}: For any fixed graph $G$, varying $\sigma$ changes state entropy $H$ continuously while $\Clam$ remains constant.
 \end{enumerate}
 \end{proposition}
 
-\begin{proof}[Proof sketch]
-(1) Ring graphs have eigenvalues clustered near zero; random graphs have large spectral gap (first non-trivial eigenvalue $\lambda_2 \gg 0$). At threshold $\lambda^* = 0.1$, rings have $C \approx 6$ while random graphs have $C = 0$. Tuning $\sigma$ can match their state entropies, but capacity differs.
+\begin{proof}
+From~\eqref{eq:entropy_decomp}, the state entropy proxy decomposes as:
+\[
+H(G, \sigma) = 2\log\sigma + B(G)
+\]
+where the \emph{baseline offset} $B(G) = -\frac{1}{n-1}\sum_{k=2}^{n} \log(\alpha\lambda_k(2 - \alpha\lambda_k))$ depends only on the Laplacian spectrum.
 
-(2) $\Clam = |\{k : 0 < \lambda_k < \lambda^*\}|$ is determined by topology alone. Varying $\sigma$ scales covariance eigenvalues, changing state entropy, but does not change which Laplacian modes are below threshold.
+\textbf{(1)} Given two graphs with different spectra, their baseline offsets satisfy $B(G_1) \neq B(G_2)$ generically. Setting $\sigma_2 = \sigma_1 \exp\big((B(G_1) - B(G_2))/2\big)$ yields $H(G_1, \sigma_1) = H(G_2, \sigma_2)$. Meanwhile, $\Clam$ depends only on the count of eigenvalues below $\lambda^*$, which is independent of $\sigma$.
+
+\textbf{(2)} Spectral capacity $\Clam = |\{k : 0 < \lambda_k < \lambda^*\}|$ is determined by topology alone. From the decomposition, $\partial H / \partial \sigma = 2/\sigma > 0$, so $H$ increases monotonically with $\sigma$ while $\Clam$ remains constant.
 \end{proof}
 
 This makes explicit that capacity differences between topologies are \emph{entirely determined} by their integrated eigenvalue densities $N_i(\lambda^*) = |\{k : 0 < \lambda_k^{(i)} < \lambda^*\}|$. Graph families with predictable spectral densities (e.g., $d$-regular graphs, stochastic block models) thus have predictable capacity scaling.
@@ -137,11 +158,11 @@ This makes explicit that capacity differences between topologies are \emph{entir
 \section{Results}
 \label{sec:results}
 
-We validate the theory on canonical architectures: ring lattices ($k=6$ neighbors), Watts-Strogatz small-worlds, stochastic block models (4 communities), Erd\H{o}s-R\'enyi random graphs, and Barab\'asi-Albert scale-free networks. All have $n = 100$ nodes; $\alpha = 0.1$; $\lambda^* = 0.1$.
+We validate the theory on canonical architectures: ring lattices ($k=6$ neighbors), Watts-Strogatz small-worlds, stochastic block models (4 communities), Erd\H{o}s-R\'enyi random graphs, and Barab\'asi-Albert scale-free networks. All have $n = 100$ nodes; $\alpha = 0.1$; $\lambda^* = 0.1$. Error bars show variation over 30 random graph realizations per topology class.
 
 \subsection{Capacity-Entropy Phase Portrait}
 
-Figure~\ref{fig:phase_portrait} shows the $(C, H)$ phase portrait. Each topology occupies a distinct horizontal position (capacity), while noise moves systems vertically (entropy). Key observations:
+Figure~\ref{fig:phase_portrait} shows the $(C, H)$ phase portrait. Each topology occupies a distinct horizontal position (capacity), while noise $\sigma \in [0.5, 3.0]$ moves systems vertically (entropy). Horizontal error bars indicate capacity variability across graph realizations. Key observations:
 
 \begin{itemize}
     \item \textbf{Ring}: $C = 6$ (many slow modes from dense small-$\lambda$ spectrum)
@@ -153,7 +174,7 @@ Figure~\ref{fig:phase_portrait} shows the $(C, H)$ phase portrait. Each topology
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.85\textwidth]{../figures/phase_portrait.png}
-    \caption{Capacity-entropy phase portrait. Each topology has fixed capacity (horizontal position); noise moves systems vertically. Topology and noise control orthogonal axes.}
+    \caption{Capacity-entropy phase portrait. Each topology has fixed capacity (horizontal position); noise moves systems vertically along the $\sigma$ range shown. Error bars indicate capacity variability across graph realizations. Topology and noise control orthogonal axes.}
     \label{fig:phase_portrait}
 \end{figure}
 
@@ -181,13 +202,24 @@ Figure~\ref{fig:fixed_capacity} demonstrates Proposition~\ref{prop:decoupling}(2
 
 \subsection{Spectral Mechanism}
 
-Figure~\ref{fig:spectral} shows Laplacian eigenvalue distributions. The threshold $\lambda^* = 0.1$ (dashed line) separates slow from fast modes. Ring lattices have eigenvalues clustered near zero; random graphs have a spectral gap with no eigenvalues below 0.1.
+Figure~\ref{fig:spectral} shows the integrated density of states $N(\lambda) = |\{k : \lambda_k < \lambda\}|$ for each topology. The spectral capacity is the CDF value at threshold $\lambda^* = 0.1$ (minus the trivial mode). Ring lattices have dense eigenvalues near zero; random graphs have a large spectral gap.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{../figures/spectral_theory.png}
-    \caption{Laplacian spectra. Shaded region shows modes contributing to capacity. Ring has many slow modes; random has none below threshold.}
+    \caption{Integrated density of states (eigenvalue CDF). Capacity $\Clam$ equals the CDF at threshold minus 1 (for the trivial mode). Ring has many slow modes; random has none below threshold.}
     \label{fig:spectral}
+\end{figure}
+
+\subsection{Threshold Sensitivity}
+
+Figure~\ref{fig:capacity_curve} shows capacity as a function of threshold $\lambda^*$. This ``capacity curve'' reveals how topologies separate: ring lattices accumulate capacity rapidly at small $\lambda^*$, while random graphs remain at $C = 0$ until $\lambda^*$ exceeds the spectral gap ($\lambda_2 \approx 0.15$ for $n=100$, $p=0.15$ ER graphs).
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../figures/capacity_curve.png}
+    \caption{Capacity curve: $C(\lambda^*)$ as a function of threshold. Different topologies separate in the small-$\lambda^*$ regime. Default threshold $\lambda^* = 0.1$ shown.}
+    \label{fig:capacity_curve}
 \end{figure}
 
 \section{Discussion}
@@ -204,7 +236,7 @@ For \textbf{neural networks}, this distinguishes high-dimensional activity \cite
 
 \subsection{Relation to Prior Work}
 
-The dimension-entropy distinction is classical \citep{eckmann1985ergodic, grassberger1983measuring}. Our contribution is making it network-native via Laplacian spectral analysis. Related work includes entropy rate on networks \citep{gomez2008entropy}, correlation dimension \citep{lacasa2013correlation}, and entrograms \citep{faccin2018entrograms}.
+The dimension-entropy distinction is classical \citep{eckmann1985ergodic, grassberger1983measuring}. This tutorial makes it network-native via Laplacian spectral analysis, but does not claim the distinction itself as novel. Related work includes entropy rate on networks \citep{gomez2008entropy}, which measures temporal unpredictability rather than state spread; visibility graph correlation dimension \citep{lacasa2013correlation}; and entrograms for community detection \citep{faccin2018entrograms}. The spectral gap literature \citep{chung1997spectral} provides the mathematical foundation for our capacity definition.
 
 \subsection{Limitations}
 

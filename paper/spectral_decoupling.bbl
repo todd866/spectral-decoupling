@@ -1,4 +1,4 @@
-\begin{thebibliography}{11}
+\begin{thebibliography}{12}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -13,6 +13,12 @@ S.~L. Braunstein, S.~Ghosh, and S.~Severini.
 \newblock \emph{Annals of Combinatorics}, 10\penalty0 (3):\penalty0 291--317,
   2006.
 \newblock \doi{10.1007/s00026-006-0289-3}.
+
+\bibitem[Chung(1997)]{chung1997spectral}
+F.~R. Chung.
+\newblock \emph{Spectral Graph Theory}, volume~92 of \emph{CBMS Regional
+  Conference Series in Mathematics}.
+\newblock American Mathematical Society, 1997.
 
 \bibitem[Eckmann and Ruelle(1985)]{eckmann1985ergodic}
 J.-P. Eckmann and D.~Ruelle.
